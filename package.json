@@ -1,6 +1,6 @@
 {
   "name": "asteriskjs",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Fully Functional client for Asterisk's AMI and AGI.",
   "main": "lib/index.js",
   "scripts": {
@@ -8,6 +8,7 @@
     "eslint": "./node_modules/.bin/eslint ./ --fix --ext ts,js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "types": "lib/index.d.ts",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/michelbitter/asteriskJS.git"
