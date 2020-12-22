@@ -1,6 +1,6 @@
 {
   "name": "asteriskjs",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "description": "Fully Functional client for Asterisk's AMI and AGI.",
   "main": "lib/index.js",
   "scripts": {
@@ -9,6 +9,9 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "types": "lib/index.d.ts",
+  "files": [
+    "lib"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/michelbitter/asteriskJS.git"
