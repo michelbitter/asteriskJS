@@ -33,14 +33,14 @@ export default class extends EventEmitter {
   protected GetLogObj(log?: LogFunction | LogConfig) {
     if (typeof log === 'function') {
       return {
-        emerg: log,
-        alert: log,
-        crit: log,
-        err: log,
-        warning: log,
-        notice: log,
-        info: log,
-        debug: log,
+        emerg: (...args: any[]) => log('emerg', ...args),
+        alert: (...args: any[]) => log('alert', ...args),
+        crit: (...args: any[]) => log('crit', ...args),
+        err: (...args: any[]) => log('err', ...args),
+        warning: (...args: any[]) => log('warning', ...args),
+        notice: (...args: any[]) => log('notice', ...args),
+        info: (...args: any[]) => log('info', ...args),
+        debug: (...args: any[]) => log('debug', ...args),
       }
     } else if (typeof log === 'object' && 'reporters' in log) {
       return this.deps.loghandler(log)

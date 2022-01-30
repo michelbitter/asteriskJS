@@ -24,6 +24,5 @@
     "typeRoots": ["node_modules/@types"]
   },
   "exclude": ["node_modules", "lib"],
-  "include": [ "src",],
   "types": ["node", "mocha", "chai", "@hapi/joi"]
 }

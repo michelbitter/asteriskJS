@@ -1,7 +1,7 @@
-import agiHandler from './class/agiHandler/agiHandler'
+import AgiConnectionEstablisher from './class/agiHandler/agiConnectionEstablisher'
 import amiHandler from './class/amiHandler/amiHandler'
 
 export interface HandlerDependencies {
-  agiHandler: typeof agiHandler
+  AgiConnectionEstablisher: typeof AgiConnectionEstablisher
   amiHandler: typeof amiHandler
 }

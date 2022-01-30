@@ -9,6 +9,7 @@ import {
   Status,
 } from './interfaces'
 import {v4} from 'uuid'
+import {SingleConnection} from './interfaces/singleConnection.interface'
 
 export default class extends EventEmitter {
   private current: null | CommandObject = null
@@ -17,12 +18,12 @@ export default class extends EventEmitter {
   private status: Status = Status.init
   private variablesList: {[key: string]: string} = {}
 
-  constructor(private Deps: ContextHandlerDependencies, private Socket: Socket) {
+  constructor(private Deps: ContextHandlerDependencies, private Socket: Socket | SingleConnection) {
     super()
     this.init()
   }
 
-  public static Factory(sys: ContextHandlerSys, connection: Socket) {
+  public static Factory(sys: ContextHandlerSys, connection: Socket | SingleConnection) {
     return new this(
       {
         uuid: v4,

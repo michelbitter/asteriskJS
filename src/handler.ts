@@ -1,5 +1,5 @@
 import {HandlerDependencies} from './interfaces'
-import agiHandler from './class/agiHandler/agiHandler'
+import AgiConnectionEstablisher from './class/agiHandler/agiConnectionEstablisher'
 import amiHandler from './class/amiHandler/amiHandler'
 
 export default class {
@@ -7,17 +7,17 @@ export default class {
 
   public static Factory() {
     return new this({
-      agiHandler,
+      AgiConnectionEstablisher,
       amiHandler,
     })
   }
 
   public async agi(opts: unknown) {
-    if (this.deps.agiHandler.validateConfig(opts)) {
-      const agiHandler = this.deps.agiHandler.Factory(opts)
+    if (this.deps.AgiConnectionEstablisher.validateConfig(opts)) {
+      const agiHandler = this.deps.AgiConnectionEstablisher.Factory(opts)
       return agiHandler.init()
     } else {
-      throw this.deps.agiHandler.getValidationErrors(opts)
+      throw this.deps.AgiConnectionEstablisher.getValidationErrors(opts)
     }
   }
 

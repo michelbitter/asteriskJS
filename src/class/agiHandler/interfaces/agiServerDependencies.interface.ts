@@ -1,8 +1,12 @@
-import connectionHandler from '../connectionHandler/connectionHandler'
+import AgiConnectionHandler from '../agiConnectionHandler'
 import {createServer} from 'net'
 import {ServerDependencies} from '../../serverHandler/interfaces/serverDependencies.interface'
+import CLIConnection from '../connections/cliConnection.class'
 
 export interface AgiServerDependencies extends ServerDependencies {
-  createServer: typeof createServer
-  connectionHandler: typeof connectionHandler
+  AgiConnectionHandler: typeof AgiConnectionHandler
+  connections: {
+    cli: typeof CLIConnection
+    tcp: typeof createServer
+  }
 }
