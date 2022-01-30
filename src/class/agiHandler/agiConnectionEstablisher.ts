@@ -55,11 +55,13 @@ export class AgiConnectionEstablisher extends serverHandler {
           }
         })
       })
+    } else {
+      const err = new Error(
+        `Couldn't make connection. Connection type is unknown. Please choose between "cli" and "tcp"`,
+      )
+      this.Log.emerg(err)
+      throw err
     }
-
-    const err = new Error(`Couldn't make connection. Connection type is unknown. Please choose between "cli" and "tcp"`)
-    this.Log.emerg(err)
-    throw err
   }
 
   public async close() {
