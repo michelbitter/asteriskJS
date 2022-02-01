@@ -1,6 +1,6 @@
 {
   "name": "asteriskjs",
-  "version": "0.2.2",
+  "version": "0.2.3",
   "description": "Fully Functional client for Asterisk's AMI and AGI.",
   "main": "lib/index.js",
   "scripts": {
