@@ -78,7 +78,7 @@ export default class extends EventEmitter {
       if (this.msg.indexOf('\n') < 0) return false
       this.readResponse(this.msg)
     }
-
+    this.Deps.Log.debug(`RECEIVED: ${this.msg}`)
     this.msg = ''
     return true
   }
@@ -130,6 +130,7 @@ export default class extends EventEmitter {
       this.setStatus(Status.busy)
       const cmd = this.commandQueue.shift() as CommandObject
       this.current = cmd
+      this.Deps.Log.debug(`SEND: ${cmd.msg}`)
       this.Socket.write(`${cmd.msg}\n`)
       this.setStatus(Status.waiting)
     }

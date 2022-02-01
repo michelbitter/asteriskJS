@@ -1,12 +1,12 @@
-import {EventEmitter} from 'events'
-import {SingleConnection} from '../interfaces/singleConnection.interface'
+import * as events from 'events'
+import SingleConnection from '../interfaces/singleConnection.interface'
 import * as process from 'process'
 
 export interface Dependencies {
   process: typeof process
 }
 
-export class CLIConnection extends EventEmitter implements SingleConnection {
+export class CLIConnection extends events.EventEmitter implements SingleConnection {
   public constructor(private deps: Dependencies) {
     super()
 
@@ -31,11 +31,11 @@ export class CLIConnection extends EventEmitter implements SingleConnection {
     encoding?: BufferEncoding,
     cb?: ((err?: Error | undefined) => void) | undefined,
   ) {
-    return this.deps.process.stdout.write(buffer, encoding, cb)
+    return this.deps.process.stdout.write(buffer, encoding || 'utf-8', cb)
   }
 
   public end() {
-    return this.deps.process.stdout.end()
+    return this.deps.process.exit(0)
   }
 }
 
